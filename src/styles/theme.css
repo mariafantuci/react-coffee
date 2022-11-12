@@ -1,5 +1,3 @@
-@important './button.css';
-@important './forms.css';
 
 @tailwind base;
 @tailwind utilities;
@@ -7,4 +5,112 @@
 
 body {
   @apply bg-background font-sans;
+}
+
+.btn {
+  @apply bg-yellow text-white text-xs py-3 px-11 inline-block leading-4 tracking-widest font-Roboto uppercase font-bold rounded-lg;
+
+  &:hover {
+      @apply bg-yellow-dark;
+  }
+
+  &:focus-visible {
+      @apply bg-yellow-dark;
+  }
+
+  &:active {
+      @apply bg-yellow-dark;
+  }
+  
+  
+}
+.btn-cart {
+  @apply bg-purple py-2 px-2 inline-block leading-4 tracking-widest rounded-lg;
+
+  .icon-cart{ 
+      @apply fill-base-card inline-block w-5 h-5 align-text-bottom;
+  }
+}
+
+.btn-cart-empty {
+  @apply bg-yellow-light py-2 px-2 inline-block leading-4 tracking-widest rounded-lg;
+
+  .icon-cart{ 
+      @apply fill-yellow-dark inline-block w-5 h-5 align-text-bottom;
+
+  }
+
+}
+
+.btn-trash {
+  @apply bg-base-button text-base-text text-xxs py-1.5 px-2 inline-block leading-4 tracking-widest font-Roboto uppercase  rounded-lg;
+
+  &:hover {
+      @apply bg-base-button text-base-subtitle;
+  }
+
+  &:focus-visible {
+      @apply bg-base-button;
+  }
+
+  &:active {
+      @apply bg-base-button;
+  }
+
+  .icon-trash{ 
+      @apply fill-white inline-block w-4 h-4 align-text-bottom;
+      
+      &:hover {
+          @apply bg-purple-dark;
+      }
+
+      &:focus-visible {
+          @apply bg-purple-dark;
+      }
+
+      &:active {
+          @apply bg-purple-dark;
+      }
+  }
+
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]:focus, input[type="number"]:active {
+    border: none;
+    outline: none;
+}
+
+[type="text"],
+select,
+input {
+    @apply border border-base-button bg-base-input text-base-text px-3 py-3 block w-full rounded-lg;
+
+    &:focus {
+        @apply border-yellow-dark ring-transparent;
+
+        &::placeholder {
+            @apply text-base-label;
+        }
+    }
+
+    &::placeholder {
+        @apply text-base-label;
+    }
+
+    &.icon-left {
+        @apply fill-purple pl-4;
+    }
+
+    &.icon-right {
+        @apply fill-purple pr-1;
+    }
 }

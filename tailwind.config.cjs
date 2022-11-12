@@ -44,6 +44,9 @@ module.exports = {
       fontFamily: {
         'baloo': 'cursive',
         'Roboto': 'sans-serif',
+      },
+      borderRadius: {
+         'large': '36px'
       }
     },
   },
