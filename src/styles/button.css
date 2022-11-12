@@ -1,0 +1,71 @@
+@layer components {
+
+    .btn {
+        @apply bg-yellow text-white text-xs py-3 px-11 inline-block leading-4 tracking-widest font-Roboto uppercase font-bold rounded-lg;
+
+        &:hover {
+            @apply bg-yellow-dark;
+        }
+
+        &:focus-visible {
+            @apply bg-yellow-dark outline-focus;
+        }
+
+        &:active {
+            @apply bg-yellow-dark;
+        }
+        
+        
+    }
+    .btn-card {
+        @apply bg-purple py-2 px-2 inline-block leading-4 tracking-widest rounded-lg;
+
+        .icon-card{ 
+            @apply fill-purple-dark inline-block w-5 h-5 align-text-bottom;
+        }
+    }
+
+    .btn-card-empty {
+        @apply bg-yellow-light py-2 px-2 inline-block leading-4 tracking-widest rounded-lg;
+
+        .icon-card{ 
+            @apply fill-yellow-dark inline-block w-5 h-5 align-text-bottom;
+
+        }
+
+    }
+
+    .btn-trash {
+        @apply bg-base-button text-base-text text-xxs py-1.5 px-2 inline-block leading-4 tracking-widest font-Roboto uppercase  rounded-lg;
+
+        &:hover {
+            @apply bg-base-button-dark text-base-subtitle;
+        }
+
+        &:focus-visible {
+            @apply bg-base-button-dark outline-focus;
+        }
+
+        &:active {
+            @apply bg-base-button-dark;
+        }
+
+        .icon-trash{ 
+            @apply fill-white inline-block w-4 h-4 align-text-bottom;
+            
+            &:hover {
+                @apply bg-purple-dark;
+            }
+
+            &:focus-visible {
+                @apply bg-purple-dark outline-focus;
+            }
+    
+            &:active {
+                @apply bg-purple-dark;
+            }
+        }
+
+    }
+    
+}

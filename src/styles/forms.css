@@ -1,0 +1,28 @@
+@layer forms {
+
+    [type="text"],
+    select,
+    input {
+        @apply border border-base-button bg-base-input text-base-text px-3 py-3 block w-full rounded-lg;
+
+        &:focus {
+            @apply border-yellow-dark ring-transparent;
+
+            &::placeholder {
+                @apply text-base-label;
+            }
+        }
+
+        &::placeholder {
+            @apply text-base-label;
+        }
+
+        &.icon-left {
+            @apply full-purple pl-4;
+        }
+
+        &.icon-right {
+            @apply full-purple pr-1;
+        }
+    }
+}

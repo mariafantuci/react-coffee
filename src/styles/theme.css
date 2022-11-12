@@ -1,0 +1,10 @@
+@important './button.css';
+@important './forms.css';
+
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+body {
+  @apply bg-background font-sans;
+}
