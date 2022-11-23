@@ -47,6 +47,9 @@ module.exports = {
       },
       borderRadius: {
          'large': '36px'
+      },
+      backgroundImage: {
+        'hero-bg': "url('src/assets/Background.svg')",
       }
     },
   },
