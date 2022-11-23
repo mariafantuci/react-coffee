@@ -14,7 +14,7 @@ export function App() {
       <div className="px-10 lg:px-36 w-full grid lg:grid-cols-2 xl:grid-cols-4 gap-y-8 gap-x-7">
       { 
         coffees.map(coffee => {
-          return(
+          return( coffee.stock &&
             <Card key={coffee.id} coffee={coffee} />
           )
         })
