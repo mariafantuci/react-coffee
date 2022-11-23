@@ -42,11 +42,14 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'baloo': 'cursive',
-        'Roboto': 'sans-serif',
+        'baloo': ["'Baloo 2'", "'cursive'"],
+        'Roboto': ["'Roboto'", "'sans-serif'"],
       },
       borderRadius: {
          'large': '36px'
+      },
+      backgroundImage: {
+        'banner-background': "url('/src/assets/Background.svg')",
       }
     },
   },

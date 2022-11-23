@@ -1,9 +1,9 @@
 import logo from '../assets/logo.svg'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 
-export function Header () {
+export function Header() {
     return (
-        <header className="flex w-full bg-background py-10 px-10 justify-between items-center">
+        <header className="flex w-full bg-background px-4 md:px-8 xl:px-20 h-[100px] justify-between items-center">
             <img src={logo} alt="coffee purple" />
             <div className="flex items-center gap-3">
                 <div className="flex items-center bg-purple-light text-purple rounded-lg p-2 gap-1">
