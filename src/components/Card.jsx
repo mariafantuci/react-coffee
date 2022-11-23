@@ -17,9 +17,9 @@ export function Card({ coffee }) {
             <h3 className="font-baloo font-bold text-lg mt-4 mb-2">{coffee.name}</h3>
             <p className="mb-8 text-center text-base-label text-xs leading-4">{coffee.description}</p>
             <div className="flex w-full items-center align-center content-center justify-center">
-                <span className="text-base-text text-xs mr-3">R$:</span>
-                <span className="font-baloo font-bold text-xs text-base-text mr-1">{coffee.price}</span>
-                <Buy/>
+                <span className="text-base-text text-xs mr-1">R$:</span>
+                <span className="font-baloo font-bold text-xs text-base-text mr-5">{coffee.price}</span>
+                <Buy />
             </div>
         </div>
     )

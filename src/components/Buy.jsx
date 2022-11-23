@@ -13,7 +13,7 @@ export function Buy(){
                 </button>
             </div>
             <button className="btn-cart">
-                <ShoppingCartSimple className="fill-base-card text-background" size={32} />
+                <ShoppingCartSimple className="fill-base-card text-background" size={22} />
             </button>
         </div>
     )
