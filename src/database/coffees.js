@@ -1,10 +1,8 @@
-import { useState } from 'react';
-
-export const coffee= [
+export const coffees = [
     {
         id: 1,
         name: "Expresso  Tradicional",
-        img: "expresso-tradicional.png",
+        img: "src/assets/expresso-tradicional.png",
         tags: [
             "Tradicional"
         ],
@@ -15,7 +13,7 @@ export const coffee= [
     {
         id: 2,
         name: "Expresso Americano",
-        img: "expresso-americano.png",
+        img: "src/assets/expresso-americano.png",
         tags: [
             "Tradicional"
         ],
@@ -26,7 +24,7 @@ export const coffee= [
     {
         id: 3,
         name: "Expresso Cremoso",
-        img: "expresso-cremoso.png",
+        img: "src/assets/expresso-cremoso.png",
         tags: [
             "Tradicional"
         ],
@@ -37,7 +35,7 @@ export const coffee= [
     {
         id: 4,
         name: "Expresso Gelado",
-        img: "expresso-gelado.png",
+        img: "src/assets/expresso-gelado.png",
         tags: [
             "Tradicional",
             "gelado"
@@ -49,7 +47,7 @@ export const coffee= [
     {
         id: 5,
         name: "Café com Leite",
-        img: "cafe-leite.png",
+        img: "src/assets/cafe-leite.png",
         tags: [
             "Tradicional",
             "com leite"
@@ -61,7 +59,7 @@ export const coffee= [
     {
         id: 6,
         name: "Latte",
-        img: "latte.png",
+        img: "src/assets/latte.png",
         tags: [
             "Tradicional",
             "com leite"
@@ -73,7 +71,7 @@ export const coffee= [
     {
         id: 7,
         name: "Capuccino",
-        img: "capuccino.png",
+        img: "src/assets/capuccino.png",
         tags: [
             "Tradicional",
             "com leite"
@@ -85,7 +83,7 @@ export const coffee= [
     {
         id: 8,
         name: "Macchiato",
-        img: "macchiato.png",
+        img: "src/assets/macchiato.png",
         tags: [
             "Tradicional",
             "com leite"
@@ -97,7 +95,7 @@ export const coffee= [
     {
         id: 9,
         name: "Mocaccino",
-        img: "mocaccino.png",
+        img: "src/assets/mocaccino.png",
         tags: [
             "Tradicional",
             "com leite"
@@ -109,7 +107,7 @@ export const coffee= [
     {
         id: 10,
         name: "Chocolate Quente",
-        img: "chocolate-quente.png",
+        img: "src/assets/chocolate-quente.png",
         tags: [
             "Tradicional",
             "com leite"
@@ -121,7 +119,7 @@ export const coffee= [
     {
         id: 11,
         name: "Cubano",
-        img: "cubano.png",
+        img: "src/assets/cubano.png",
         tags: [
             "Tradicional",
             "alcoólico",
@@ -134,7 +132,7 @@ export const coffee= [
     {
         id: 12,
         name: "Havaiano",
-        img: "havaiano.png",
+        img: "src/assets/havaiano.png",
         tags: [
             "especial",
         ],
@@ -145,7 +143,7 @@ export const coffee= [
     {
         id: 13,
         name: "Árabe",
-        img: "arabe.png",
+        img: "src/assets/arabe.png",
         tags: [
             "especial",
         ],
@@ -156,7 +154,7 @@ export const coffee= [
     {
         id: 14,
         name: "Irlandês",
-        img: "irlandes.png",
+        img: "src/assets/irlandes.png",
         tags: [
             "especial",
             "alcoólico"
@@ -166,5 +164,3 @@ export const coffee= [
         stock: 100
     }
 ]
-
-const [coffee, setCoffee] = useState<coffee>([]);
