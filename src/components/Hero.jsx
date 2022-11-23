@@ -10,25 +10,25 @@ export function Hero(){
                 <div className="mt-6 lg:mt-16 flex flex-col gap-y-5 md:grid md:grid-cols-2">
                     <div className="flex items-center gap-x-3">
                         <div className="bg-yellow-dark rounded-full p-2.5">
-                            <ShoppingCart size={16}/>
+                            <ShoppingCart className="text-white fill-white" size={16}/>
                         </div>
                         <span className="text-roboto text-sm text-base-text leading-5">Compra simples e segura</span>
                     </div>
                     <div className="flex items-center gap-x-3">
                         <div className="bg-base-text rounded-full p-2.5">
-                            <Package size={16}/>
+                            <Package className="text-white fill-white" size={16}/>
                         </div>
                         <span className="text-roboto text-sm text-base-text leading-5">Embalagem mantém o café intacto</span>
                     </div>
                     <div className="flex items-center gap-x-3">
                         <div className="bg-yellow rounded-full p-2.5">
-                            <Timer size={16}/>
+                            <Timer className="text-white fill-white" size={16}/>
                         </div>
                         <span className="text-roboto text-sm text-base-text leading-5">Entrega rápida e rastreada</span>
                     </div>
                     <div className="flex items-center gap-x-3">
                         <div className="bg-purple rounded-full p-2.5">
-                            <Coffee />
+                            <Coffee className="text-white fill-white" size={16}/>
                         </div>
                         <span className="text-roboto text-sm text-base-text leading-5">O café chega fresquinho até você</span>
                     </div>
