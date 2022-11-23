@@ -9,7 +9,7 @@ export function Card({ coffee }) {
                 {
                     coffee.tags.map(tag => {
                         return(
-                            <span className="text-yellow-dark uppercase font-bold text-2xxs bg-yellow-light py-1 px-2 rounded-full">{tag}</span>
+                            <span key={tag} className="text-yellow-dark uppercase font-bold text-2xxs bg-yellow-light py-1 px-2 rounded-full">{tag}</span>
                         )
                     })
                 }
