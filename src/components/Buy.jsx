@@ -1,8 +1,11 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react';
+import { CoffeeContext } from '../contexts/CoffeeContext';
 
-export function Buy(){
+export function Buy({id}){
     const [qty, setQty] = useState(1);
+
+    const { addCoffeeToCart } = useContext(CoffeeContext)
 
     function handleMinusQuantity(){
         if(qty >= 2){
@@ -11,10 +14,15 @@ export function Buy(){
             })
         }
     }
+
     function handlePlusQuantity(){
         setQty((state) => {
             return state + 1
         })
+    }
+    
+    function handleAddToCard() {
+        addCoffeeToCart(id)
     }
 
     return(
@@ -28,7 +36,7 @@ export function Buy(){
                     <Plus className="text-purple hover:text-purple-dark" size={16} />
                 </button>
             </div>
-            <button className="btn-cart">
+            <button onClick={handleAddToCard} className="btn-cart">
                 <ShoppingCartSimple className="fill-base-card text-background" size={22} />
             </button>
         </div>
