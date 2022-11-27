@@ -114,3 +114,25 @@ input {
         @apply fill-purple pr-1;
     }
 }
+
+span[data-value="0"]{
+    @apply hidden;
+}
+
+h3[data-value="0"]{
+    @apply hidden;
+}
+
+.success-message {
+    @apply text-white block mx-auto text-center rounded-lg font-Roboto text-lg p-4 w-full lg:w-1/2 mb-6 opacity-0 bg-success;
+    -webkit-animation: fadeinout 4s linear forwards;
+    animation: fadeinout 4s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  50% { opacity: 1; }
+}
