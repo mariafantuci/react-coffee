@@ -3,25 +3,61 @@ import { coffees } from '../database/coffees';
 
 export const CoffeeContext = createContext({});
 
-export function CoffeeContextProvider({ children }) {
-    const [cart, setCart] = useState([]);
+let cartItemId = 1;
 
-    function addCoffeeToCart(id) {
-        const findSelectedCoffee = coffees.find(coffee => {
+export function CoffeeContextProvider({ children }) {
+    const [cartItem, setCartItem] = useState([]);
+    const [cart, setCart] = useState({
+        total: 0,
+        totalQty: 0
+    }); 
+
+    function findCoffeeById(id) {
+        return coffees.find(coffee => {
             return coffee.id === id
         })
-        setCart(...cart, findSelectedCoffee)
     }
-    
+
+    function findCoffeeItemById(id) {
+        return cartItem.find(item => {
+            return item.productId === id
+        })
+    }
+
+    function addCoffeeToCart(id, qty) {
+        let idCartItem = 0;
+        let item = cartItem.length > 0 ? findCoffeeItemById(id) : null;
+
+        if(item){
+            idCartItem = item.id;
+        }else{
+            item = findCoffeeById(id);
+            idCartItem = cartItemId++;
+        }
+
+        const total = qty * item.price;
+
+        setCartItem([...cartItem, {
+            id: idCartItem,
+            productId: id,
+            price: item.price,
+            qty,
+            total: total
+        }])
+
+        setCart({
+            total: parseFloat(cart.total) + parseFloat(total),
+            totalQty: parseInt(cart.totalQty) + parseInt(qty)
+        })
+        
+        console.log('cart', cart)
+    }
+
     function removeCoffeeToCart(id) {
         const findSelectedCoffee = coffees.find(coffee => {
             return coffee.id !== id
         })
-        setCart(findSelectedCoffee)
-    }
-
-    function cartValues() {
-        return cart;
+        setCartItem(findSelectedCoffee)
     }
 
     return (
@@ -30,7 +66,7 @@ export function CoffeeContextProvider({ children }) {
             {
                 addCoffeeToCart,
                 removeCoffeeToCart,
-                cartValues
+                cart
             }
         }>
             {children}

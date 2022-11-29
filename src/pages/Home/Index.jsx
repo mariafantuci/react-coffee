@@ -1,6 +1,7 @@
 import { Card } from '../../components/Card'
 import { Header } from '../../components/Header'
 import { Hero } from '../../components/Hero'
+
 import { coffees } from '../../database/coffees'
 
 export function Home(){
@@ -12,7 +13,7 @@ export function Home(){
             <div className="px-10 lg:px-36 w-full grid lg:grid-cols-2 xl:grid-cols-4 gap-y-8 gap-x-7">
                 { 
                     coffees.map(coffee => {
-                    return( coffee.stock &&
+                    return(
                         <Card key={coffee.id} coffee={coffee} />
                     )
                     })

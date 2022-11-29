@@ -34,7 +34,7 @@ export function Hero(){
                     </div>
                 </div>
             </div>
-            <div className="flex w-full justify-items-end">
+            <div className="flex w-full xl:w-9/12 xl:ml-auto">
                 <img src={coffee} alt="coffee" />
             </div>
         </div>

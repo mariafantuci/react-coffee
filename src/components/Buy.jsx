@@ -22,7 +22,8 @@ export function Buy({id}){
     }
     
     function handleAddToCard() {
-        addCoffeeToCart(id)
+        addCoffeeToCart(id, qty)
+        setQty(1);
     }
 
     return(
