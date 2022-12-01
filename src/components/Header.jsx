@@ -1,7 +1,15 @@
 import logo from '../assets/logo.svg'
 import { MapPin, ShoppingCart } from 'phosphor-react'
+import { useContext } from 'react'
+import { CoffeContext } from '../Context/CoffeContext'
+import { NavLink } from 'react-router-dom';
 
 export function Header () {
+    const { cartItem } = useContext(CoffeContext);
+    let total = 0
+    cartItem.forEach((item) => {
+        total += item.qty
+    })
     return (
         <header className="flex w-full bg-background py-10 px-10 lg:px-36 justify-between items-center">
             <img src={logo} alt="coffee purple" />
@@ -10,8 +18,11 @@ export function Header () {
                     <MapPin className="fill-purple" size={32} />
                     Prudente, SP
                 </div>
-                <div className="btn-cart-empty">
-                    <ShoppingCart className="icon-cart" size={32} />
+                <div className="btn-cart-empty relative">
+                    <NavLink to={total != 0 ? "/checkout" : '' } title="Checkout">
+                        <ShoppingCart className="icon-cart" size={32} />
+                        <span className={total == 0 ? 'hidden' : 'cartQty'}>{total}</span>
+                    </NavLink>
                 </div>    
             </div>
         </header>
