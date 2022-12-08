@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react';
 import { CoffeContext } from '../Context/CoffeContext';
 
-export function Buy({ id }){
+export function Buy({ id, showButton }){
     const [qty, setQty] = useState(1)
 
     const { addToCart } = useContext(CoffeContext)
@@ -37,9 +37,11 @@ export function Buy({ id }){
                     <Plus className="text-purple hover:text-purple-dark" size={16} />
                 </button>
             </div>
-            <button className="btn-cart" onClick={handleAddToCart}>
-                <ShoppingCartSimple className="fill-base-card text-background" size={22} />
-            </button>
+            {showButton && 
+                <button className="btn-cart" onClick={handleAddToCart}>
+                    <ShoppingCartSimple className="fill-base-card text-background" size={22} />
+                </button>
+            }
         </div>
     )
 }

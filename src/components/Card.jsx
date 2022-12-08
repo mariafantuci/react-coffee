@@ -19,7 +19,7 @@ export function Card({ coffee }) {
             <div className="flex w-full items-center align-center content-center justify-center">
                 <span className="text-base-text text-xs mr-1">R$:</span>
                 <span className="font-baloo font-bold text-xs text-base-text mr-5">{coffee.price}</span>
-                <Buy id={coffee.id } />
+                <Buy id={coffee.id } showButton={true} />
             </div>
         </div>
     )
