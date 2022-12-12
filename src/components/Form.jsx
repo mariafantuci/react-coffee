@@ -1,8 +1,11 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from 'phosphor-react';
+import { useContext } from 'react';
+import { CoffeContext } from '../Context/CoffeContext';
 import { CartItem } from './CartItem';
 import { Total } from './Total';
 
 export function Form(){
+    const { cartItem } = useContext(CoffeContext);
     return (
         <div className="py-10 px-10 lg:px-36 grid form-container gap-x-8">
             <div className="pb-4">
@@ -86,8 +89,13 @@ export function Form(){
             <div className="">
                 <h2 className="font-baloo font-bold text-md leading-6 mb-6 ">Cafés selecionados</h2>
                 <form className="bg-base-card p-5 lg:p-10 flex flex-col gap-y-4 box-border rounded-tl-md rounded-bl-large rounded-br-md rounded-tr-large">
-                    <CartItem />
-                    <CartItem />
+                {
+                    cartItem.map(item => {
+                        return(
+                            <CartItem key={item.id} coffee={item}/>
+                        )
+                    })
+                }
                     <Total />
                 </form>
             </div>

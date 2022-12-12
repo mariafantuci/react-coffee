@@ -2,9 +2,12 @@ import { useContext, useState } from 'react'
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react';
 import { CoffeContext } from '../Context/CoffeContext';
 
-export function Buy({ id, showButton }){
-    const [qty, setQty] = useState(1)
-
+export function Buy({ id, showButton, cartQty}){
+    let initial = 1
+    if(cartQty != 0 ){
+        initial = cartQty
+    }
+    const [qty, setQty] = useState(initial)
     const { addToCart } = useContext(CoffeContext)
 
     function handleMinusQuantity(){
