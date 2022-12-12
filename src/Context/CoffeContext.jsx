@@ -29,12 +29,12 @@ export function CoffeContextProvider({ children }){
                 (item) => item.productId === id
             )
             const newItem = produce(cartItem, (draft) => {
-                const total = parseInt(qty) * parseFloat(item.price)
+                const total = parseInt(qty) * parseFloat(item.price).toFixed(2)
                 if(coffeAlreadyExists < 0){
                     draft.push({
                         id: cartItemId++,
                         productId: item.id,
-                        price: parseFloat(item.price),
+                        price: parseFloat(item.price).toFixed(2),
                         qty,
                         total
                     })
@@ -47,7 +47,31 @@ export function CoffeContextProvider({ children }){
                 newTotal += parseFloat(totalCart) + parseFloat(total)
             })
             setCartItem(newItem)
-            setTotalCart(newTotal)
+            setTotalCart(newTotal.toFixed(2))
+        }
+    }
+
+    function changeQty(id, qty, option){
+        let item = findCoffeebyId(id)
+        let newTotal = 0;
+        if(item){
+            const coffeAlreadyExists = cartItem.findIndex(
+                (item) => item.productId === id
+            )
+            
+            const newItem = produce(cartItem, (draft) => {
+                const total = parseInt(qty) * parseFloat(item.price).toFixed(2)
+                draft[coffeAlreadyExists].qty = qty
+                draft[coffeAlreadyExists].total = total
+                if(option == 'plus'){
+                    newTotal = parseFloat(totalCart) + parseFloat(total)
+                }else{
+                    newTotal = parseFloat(totalCart) - parseFloat(total)
+                }
+            })
+
+            setCartItem(newItem)
+            setTotalCart(newTotal.toFixed(2))
         }
     }
 
@@ -59,7 +83,8 @@ export function CoffeContextProvider({ children }){
                     addToCart, 
                     cartItem,
                     findCoffeebyId,
-                    totalCart
+                    totalCart,
+                    changeQty
                 }
             }
         >

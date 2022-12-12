@@ -88,7 +88,7 @@ export function Form(){
             </div>
             <div className="">
                 <h2 className="font-baloo font-bold text-md leading-6 mb-6 ">Cafés selecionados</h2>
-                <form className="bg-base-card p-5 lg:p-10 flex flex-col gap-y-4 box-border rounded-tl-md rounded-bl-large rounded-br-md rounded-tr-large">
+                <div className="bg-base-card p-5 lg:p-10 flex flex-col gap-y-4 box-border rounded-tl-md rounded-bl-large rounded-br-md rounded-tr-large">
                 {
                     cartItem.map(item => {
                         return(
@@ -97,7 +97,7 @@ export function Form(){
                     })
                 }
                     <Total />
-                </form>
+                </div>
             </div>
         </div>
     )

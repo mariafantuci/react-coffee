@@ -8,11 +8,12 @@ export function Buy({ id, showButton, cartQty}){
         initial = cartQty
     }
     const [qty, setQty] = useState(initial)
-    const { addToCart } = useContext(CoffeContext)
+    const { addToCart, changeQty } = useContext(CoffeContext)
 
     function handleMinusQuantity(){
         if(qty >= 2){
             setQty((state) => {
+                if(!showButton )changeQty(id, (state - 1), 'minus')
                 return state - 1
             })
         }
@@ -20,6 +21,7 @@ export function Buy({ id, showButton, cartQty}){
     
     function handlePlusQuantity(){
         setQty((state) => {
+            if(!showButton )changeQty(id, (state + 1), 'plus')
             return state + 1
         })
     }
