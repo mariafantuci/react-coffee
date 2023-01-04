@@ -16,7 +16,7 @@ body {
 }
 
 .btn-cart.icon-cart{ 
-    @apply fill-base-card inline-block w-5 h-5 align-text-bottom;
+    @apply fill-base-card inline-block w-5 h-5 align-text-bottom ;
 }
   
 .btn-cart-empty {

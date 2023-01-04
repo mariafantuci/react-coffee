@@ -1,8 +1,12 @@
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './Router'
 import './styles/theme.css'
 
 export function App() {
   return (
-    <h1>Start the project</h1>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   )
 }
 
