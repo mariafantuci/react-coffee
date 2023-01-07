@@ -1,14 +1,14 @@
 import { Routes, Route} from 'react-router-dom'
 
-import { Header } from './layouts/Header'
-import { Checkout } from './pages/Checkout/index'
-import { Home } from './pages/Home/index'
-import { Success } from './pages/Success/index'
+import { DefaultLayout } from './layouts/DefaultLayout/Index'
+import { Checkout } from './pages/Checkout/Index'
+import { Home } from './pages/Home/Index'
+import { Success } from './pages/Success/Index'
 
 export function Router(){
     return (
         <Routes>
-            <Route path="/" element={<Header />}>
+            <Route path="/" element={<DefaultLayout />}>
                 <Route path="/" element={<Home />}/>
                 <Route path="/checkout" element={<Checkout />}/>
                 <Route path="/success" element={<Success />}/>
