@@ -1,8 +1,10 @@
+import logo from '../assets/logo.svg'
 import { MapPin, ShoppingCart } from 'phosphor-react'
+import { useContext } from 'react'
+// import { CoffeContext } from '../Context/CoffeContext'
 import { NavLink } from 'react-router-dom';
-import logo from '../assets/logo.svg';
 
-export function Header() {
+export function Header () {
     let total = 0
     return (
         <header className="flex w-full bg-background py-10 px-10 lg:px-36 justify-between items-center">
