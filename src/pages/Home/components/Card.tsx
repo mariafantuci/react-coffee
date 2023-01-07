@@ -23,7 +23,7 @@ export function Card({ coffee }: coffeeProps) {
             <p className="mb-8 text-center text-base-label text-xs leading-4">{coffee.description}</p>
             <div className="flex w-full items-center align-center content-center justify-center">
                 <span className="text-base-text text-xs mr-1">R$:</span>
-                <span className="font-baloo font-bold text-xs text-base-text mr-5">{coffee.price}</span>
+                <span className="font-baloo font-bold text-xl text-base-text mr-5">{coffee.price}</span>
                 <Buy />
             </div>
         </div>
