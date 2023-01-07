@@ -22,10 +22,12 @@ body {
 .btn-cart-empty {
   @apply bg-yellow-light py-2 px-2 inline-block leading-4 tracking-widest rounded-lg;
 }
-.btn-cart-empty.icon-cart{ 
+.btn-cart-empty .icon-cart{ 
     @apply fill-yellow-dark inline-block w-5 h-5 align-text-bottom;
 }
-
+.icon-cart path, .icon-cart circle {
+  @apply fill-yellow-dark text-yellow-dark;
+}
 .btn-trash {
   @apply bg-base-button text-base-text text-xxs py-1.5 px-2 inline-block leading-4 tracking-widest font-Roboto uppercase  rounded-lg hover:bg-base-button hover:text-base-subtitle focus-visible:bg-base-button active:bg-base-button;
 }
