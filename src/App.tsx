@@ -1,11 +1,14 @@
 import { BrowserRouter } from 'react-router-dom'
+import { CoffeeContextProvider } from './Context/CoffeeContext'
 import { Router } from './Router'
 import './styles/theme.css'
 
 export function App() {
   return (
     <BrowserRouter>
-      <Router />
+      <CoffeeContextProvider>
+        <Router />
+      </CoffeeContextProvider>
     </BrowserRouter>
   )
 }
