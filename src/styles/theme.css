@@ -12,7 +12,15 @@ body {
 }
 
 .btn-cart {
-  @apply bg-purple py-2 px-2 inline-block leading-4 tracking-widest rounded-lg;
+  @apply bg-purple-dark hover:bg-purple fill-white py-2 px-2 inline-block leading-4 tracking-widest rounded-lg;
+}
+
+.map-icon circle{
+  @apply fill-white;
+}
+
+.btn-cart path{
+  @apply fill-white 
 }
 
 .btn-cart.icon-cart{ 
@@ -37,7 +45,7 @@ body {
   
 
 .cartQty{
-  @apply font-Roboto text-white bg-yellow-dark font-bold p-1 rounded-full absolute -top-[10px] -right-[5px];
+  @apply font-Roboto text-white bg-yellow-dark font-bold pt-[3px] pr-1 pb-[2px]  pl-1 rounded-full absolute -top-[10px] -right-[5px];
 }
 .uf{
     &::-webkit-calendar-picker-indicator{
@@ -81,3 +89,20 @@ input.icon-right  {
     @apply fill-purple pr-1;
 }
     
+.fade-in{
+  opacity: 1;
+  transition: opacity 2s ease;
+}
+
+.fade-out{
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.payment-type{
+  @apply border-transparent;
+}
+
+.payment-type.active{
+  @apply !border-purple;
+}
