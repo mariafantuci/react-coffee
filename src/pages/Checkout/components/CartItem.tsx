@@ -9,18 +9,22 @@ interface CartItemProps {
 }
 
 export function CartItem({ coffee }: CartItemProps){
-    const { findCoffeebyId } = useContext(CoffeeContext)
+    const { findCoffeebyId, deleteCartItem } = useContext(CoffeeContext)
     const product = findCoffeebyId(coffee.productId) 
     const total = coffee.total.toFixed(2)
-    
+
+    function handleOnClickDeleteItem(id: number){
+        deleteCartItem(id)
+    }
+
     return (
         <div className="flex w-full pb-3 border-b-base-button border-b">
         <Image className="!w-[18%] mr-5" src={product?.img} alt="black coffee" />
             <div className="flex flex-col w-full gap-x-5">
                 <h4 className="font-Roboto text-base-subtitle text-sm leading-5 mb-2">{product?.name}</h4>
                 <div className="flex">
-                    <Buy cartQty={coffee.qty} id={coffee.productId} showButton={false}/>
-                    <button className="bg-base-button rounded-lg flex p-3 uppercase text-base-text text-xxs leading-5 items-center">
+                    <Buy cartQty={coffee.qty} cartId={coffee.id} id={coffee.productId} showButton={false}/>
+                    <button onClick={() => { handleOnClickDeleteItem(coffee.id) }} className="bg-base-button rounded-lg flex p-3 uppercase text-base-text text-xxs leading-5 items-center">
                         <Trash size={16} className="text-purple mr-2"/> 
                         Remover
                     </button>

@@ -107,12 +107,12 @@ export function CoffeeContextProvider({ children }: CoffeeContextProviderProps){
     function deleteCartItem(id: number) {
         let removeItem = 0;
         const coffeeWithoutDeletedOne = cartItem.filter(item => {
-            if(item.productId == id){
+            if(item.id == id){
                 removeItem = item.total
             }
-            return item.productId !== id;
+            return item.id !== id;
         })
-    
+        console.log('coffeeWithoutDeletedOne',coffeeWithoutDeletedOne)
         setCartItem(coffeeWithoutDeletedOne)
         setTotalCart(totalCart - removeItem)
     }

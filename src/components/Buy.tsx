@@ -6,23 +6,27 @@ interface BuyProps {
     id: number,
     showButton: boolean, 
     cartQty: number,
+    cartId: number
 }
 
-export function Buy({ id, showButton, cartQty}: BuyProps){
+export function Buy({ id, cartId = 0, showButton, cartQty}: BuyProps){
 
     let initial = 1
     if(cartQty != 0 ){
         initial = cartQty
     }
     const [qty, setQty] = useState(initial)
-    const { addToCart, changeCartItemQty } = useContext(CoffeeContext)
+    const { addToCart, changeCartItemQty, deleteCartItem } = useContext(CoffeeContext)
 
     function handleMinusQuantity(){
+        console.log('cartId',cartId)
         if(qty >= 2){
             setQty((state) => {
                 if(!showButton ) changeCartItemQty(id, (state - 1), 'minus')
                 return state - 1
             })
+        }else{
+            deleteCartItem(cartId)
         }
     }
     
