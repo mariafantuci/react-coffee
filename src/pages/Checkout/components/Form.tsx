@@ -4,6 +4,7 @@ import { useContext, MouseEvent, FocusEvent, useState } from 'react';
 import { CoffeeContext } from '../../../Context/CoffeeContext';
 import { CartItem } from './CartItem';
 import { Total } from './Total';
+import { EmptForm } from './EmptForm';
 
 interface formDataType {
     district: string;
@@ -205,7 +206,14 @@ export function Form(){
                         )
                     })
                 }
+                {
+                    cartItem.length > 0 &&
                     <Total />
+                }
+                {
+                    cartItem.length == 0 &&
+                    <EmptForm />
+                }
                 </div>
             </div>
         </div>
