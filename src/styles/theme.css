@@ -106,3 +106,24 @@ input.icon-right  {
 .payment-type.active{
   @apply !border-purple;
 }
+.success-border{
+@apply relative;
+}
+.success-border::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 36px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 36px;
+  background: linear-gradient(45deg, #DBAC2C, #8047F8) border-box;
+  -webkit-mask: linear-gradient(#DBAC2C 10% 0) padding-box, linear-gradient(#8047F8 100% 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  //border-image: linear-gradient(45deg, #DBAC2C, #8047F8) 2;
+}
