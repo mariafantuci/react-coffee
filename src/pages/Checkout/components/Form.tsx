@@ -105,6 +105,8 @@ export function Form(){
             formData.payment != ''
         ){
             setCompletedForm(true)
+            const stateJson = JSON.stringify(formData)
+            localStorage.setItem('@coffee-delivery:form-data-1.0.0', stateJson);
         }else{
             setCompletedForm(false)
         }

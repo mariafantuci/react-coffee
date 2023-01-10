@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 import { produce } from 'immer';
 import { coffees, coffeesType } from '../database/coffees';
 
@@ -42,7 +42,16 @@ interface CoffeeContextProviderProps {
 let cartItemId = 1;
 
 export function CoffeeContextProvider({ children }: CoffeeContextProviderProps){
-    const [cartItem, setCartItem] = useState<cartItemType[]>([])
+    const storedStateAsJson = localStorage.getItem(
+        '@coffee-delivery:cart-item-1.0.0'
+    )
+    
+    let initialValue = [];
+    if(storedStateAsJson){
+        initialValue = JSON.parse(storedStateAsJson)
+    }
+
+    const [cartItem, setCartItem] = useState<cartItemType[]>(initialValue)
     const [totalCart, setTotalCart] = useState(0)
     const [completedForm, setCompletedForm] = useState(false)
 
@@ -136,6 +145,13 @@ export function CoffeeContextProvider({ children }: CoffeeContextProviderProps){
         setCartItem(updatedCartItem)
         setTotalCart(newTotal)
     }
+
+
+    useEffect(() => {
+        const stateJson = JSON.stringify(cartItem)
+  
+        localStorage.setItem('@coffee-delivery:cart-item-1.0.0', stateJson);
+    }, [cartItem])
 
     return (
         <CoffeeContext.Provider 
