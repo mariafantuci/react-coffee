@@ -25,7 +25,7 @@ export function Card({ coffee }: coffeeProps) {
             <div className="flex w-full items-center align-center content-center justify-center">
                 <span className="text-base-text text-xs mr-1">R$:</span>
                 <span className="font-baloo font-bold text-xl text-base-text mr-5">{coffee.price}</span>
-                <Buy cartQty={0} id={coffee.id } showButton={true} />
+                <Buy cartQty={0} id={coffee.id } cartId={0} showButton={true} />
             </div>
         </div>
     )
