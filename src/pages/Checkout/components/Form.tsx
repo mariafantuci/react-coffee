@@ -18,8 +18,7 @@ interface formDataType {
 }
 
 export function Form(){
-    const { cartItem, setCompletedForm } = useContext(CoffeeContext);
-    const [formData, setFormData] = useState<formDataType>({
+    let initialDataValues = {
         district: "",
         cep: "",
         complement: "",
@@ -27,8 +26,10 @@ export function Form(){
         street: "",
         uf: "",
         number: "",
-        payment: "credit-card",
-    });
+        payment: "Cartão de crédito",
+    }
+    const { cartItem } = useContext(CoffeeContext);
+    const [formData, setFormData] = useState<formDataType>(initialDataValues);
 
     function selectedPaymentMethod(event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>){
         event.preventDefault();
@@ -44,7 +45,6 @@ export function Form(){
     
     function handleBlurCep(event: FocusEvent<HTMLElement>){
         const value = (event.target as HTMLInputElement).value.replace(/\D/g, '');
-        console.log(value)
         if(value != ''){
             fetch(`https://viacep.com.br/ws/${value}/json/`)
             .then(response => response.json())
@@ -56,7 +56,7 @@ export function Form(){
                     street: data.logradouro,
                     uf: data.uf,
                     number: '',
-                    payment: "credit-card",
+                    payment: "Cartão de crédito",
                 })
             )
             .catch(() => setFormData({
@@ -67,7 +67,7 @@ export function Form(){
                     street: "",
                     uf: "",
                     number: "",
-                    payment: "credit-card",
+                    payment: "Cartão de crédito",
                 })
             )
         }
@@ -104,11 +104,8 @@ export function Form(){
             formData.number != '' && 
             formData.payment != ''
         ){
-            setCompletedForm(true)
             const stateJson = JSON.stringify(formData)
             localStorage.setItem('@coffee-delivery:form-data-1.0.0', stateJson);
-        }else{
-            setCompletedForm(false)
         }
     }
 
@@ -183,15 +180,15 @@ export function Form(){
                         </div>
                     </div>
                     <div className="flex w-full gap-x-3">
-                        <button onClick={selectedPaymentMethod} value="credit-card" className="flex w-full items-center bg-base-button rounded-lg gap-x-3 p-4 text-base-text font-Roboto text-xxs leading-5 uppercase border hover:bg-base-hover payment-type active">
+                        <button onClick={selectedPaymentMethod} value="Cartão de crédito" className="flex w-full items-center bg-base-button rounded-lg gap-x-3 p-4 text-base-text font-Roboto text-xxs leading-5 uppercase border hover:bg-base-hover payment-type active">
                             <CreditCard size={16} className="text-purple mr-2"/>
                             Cartão de crédito
                         </button>
-                        <button onClick={selectedPaymentMethod} value="debit-card" className="flex w-full items-center bg-base-button rounded-lg gap-x-3 p-4 text-base-text font-Roboto text-xxs leading-5 uppercase border hover:bg-base-hover payment-type ">
+                        <button onClick={selectedPaymentMethod} value="Cartão de Débito" className="flex w-full items-center bg-base-button rounded-lg gap-x-3 p-4 text-base-text font-Roboto text-xxs leading-5 uppercase border hover:bg-base-hover payment-type ">
                             <Bank size={16} className="text-purple mr-2"/>
                             cartão de débito
                         </button>
-                        <button onClick={selectedPaymentMethod} value="cash" className="flex w-full items-center bg-base-button rounded-lg gap-x-3 p-4 text-base-text font-Roboto text-xxs leading-5 uppercase border hover:bg-base-hover payment-type ">
+                        <button onClick={selectedPaymentMethod} value="Dinheiro" className="flex w-full items-center bg-base-button rounded-lg gap-x-3 p-4 text-base-text font-Roboto text-xxs leading-5 uppercase border hover:bg-base-hover payment-type ">
                             <Money size={16} className="text-purple mr-2"/>
                             dinheiro
                         </button>

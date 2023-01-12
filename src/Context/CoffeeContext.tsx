@@ -28,8 +28,7 @@ interface CoffeeContextType{
     findCoffeebyId: (id: number) => coffeesType | null,
     changeCartItemQty: (id: number, qty: number, option: "plus" | "minus") => void,
     deleteCartItem: (id: number) => void,
-    completedForm: boolean, 
-    setCompletedForm: (value: boolean) => void,
+    clearCartitemQty: () => void,
 }
 
 
@@ -53,7 +52,6 @@ export function CoffeeContextProvider({ children }: CoffeeContextProviderProps){
 
     const [cartItem, setCartItem] = useState<cartItemType[]>(initialValue)
     const [totalCart, setTotalCart] = useState(0)
-    const [completedForm, setCompletedForm] = useState(false)
 
     function findCoffeebyId(id: number){
         const coffeeObject = coffees.find(coffee => {
@@ -121,7 +119,6 @@ export function CoffeeContextProvider({ children }: CoffeeContextProviderProps){
             }
             return item.id !== id;
         })
-        console.log('coffeeWithoutDeletedOne',coffeeWithoutDeletedOne)
         setCartItem(coffeeWithoutDeletedOne)
         setTotalCart(totalCart - removeItem)
     }
@@ -146,7 +143,9 @@ export function CoffeeContextProvider({ children }: CoffeeContextProviderProps){
         setTotalCart(newTotal)
     }
 
-
+    function clearCartitemQty(){
+        setCartItem([]);
+    }
     useEffect(() => {
         const stateJson = JSON.stringify(cartItem)
   
@@ -163,8 +162,7 @@ export function CoffeeContextProvider({ children }: CoffeeContextProviderProps){
                     changeCartItemQty,
                     addToCart,
                     deleteCartItem,
-                    completedForm, 
-                    setCompletedForm,
+                    clearCartitemQty
                 }
             }
         >

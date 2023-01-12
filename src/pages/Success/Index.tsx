@@ -1,26 +1,55 @@
 import illustration from '../../assets/illustration.svg'
-import { CurrencyDollar, MapPin, ShoppingCart, Timer } from 'phosphor-react'
-interface InformationType {
-    district: string;
-    cep: string;
-    complement: string;
-    city: string;
-    street: string;
-    uf: string;
-    number: string;
-    payment: string;
-}
+import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useContext } from 'react';
+import { CoffeeContext } from '../../Context/CoffeeContext';
 
 export function Success(){
     const storedStateAsJson = localStorage.getItem(
         '@coffee-delivery:form-data-1.0.0'
     )
-    if(storedStateAsJson){
-        const information: InformationType = JSON.parse(storedStateAsJson)
-    }else{
+
+    if(!storedStateAsJson){
         window.location.href = window.location.origin + '/'
     }
-    console.log('information',information)
+    const { clearCartitemQty } = useContext(CoffeeContext);
+    const {city, number, payment, street, uf } = JSON.parse(storedStateAsJson!)
+
+    clearCartitemQty();
+    
+    const convertToFullName = function(uf: string) {
+        let data;
+        switch (uf.toUpperCase()) {
+          case "AC" : data = "Acre";                  break;
+          case "AL" : data = "Alagoas";               break;
+          case "AM" : data = "Amazonas";              break;
+          case "AP" : data = "Amapa";                 break;
+          case "BA" : data = "Bahia";                 break;
+          case "CE" : data = "Ceara";                 break;
+          case "DF" : data = "Distrito Federal";      break;
+          case "ES" : data = "Espirito Santo";        break;
+          case "GO" : data = "Goias";                 break;
+          case "MA" : data = "Maranhao";              break;
+          case "MG" : data = "Minas Gerais";          break;
+          case "MS" : data = "Mato Grosso do Sul";    break;
+          case "MT" : data = "Mato Grosso";           break;
+          case "PA" : data = "Para";                  break;
+          case "PB" : data = "Paraiba";               break;
+          case "PE" : data = "Pernambuco";            break;
+          case "PI" : data = "Piaui";                 break;
+          case "PR" : data = "Parana";                break;
+          case "RJ" : data = "Rio de Janeiro";        break;
+          case "RN" : data = "Rio Grande do Norte";   break;
+          case "RO" : data = "Rondonia";              break;
+          case "RR" : data = "Roraima";               break;
+          case "RS" : data = "Rio Grande do Sul";     break;
+          case "SC" : data = "Santa Catarina";        break;
+          case "SE" : data = "Sergipe";               break;
+          case "SP" : data = "São Paulo";             break;
+          case "TO" : data = "Tocantins";             break;
+        }
+        return data;
+    };
+
     return(
         <main className="grid grid-cols-1 lg:gap-x-10 xl:gap-x-24 lg:grid-cols-2 bg-background py-10 px-10 lg:px-36">
             <div className="w-full">
@@ -34,8 +63,8 @@ export function Success(){
                         <div className="">
                             <p className="font-Roboto text-sm text-base-text leading-5">
                                 Entrega em 
-                                <strong> Rua João Daniel Martinelli, 102 </strong>
-                                <br /> Farrapos - Porto Alegre, RS
+                                <strong> { street }, { number } </strong>
+                                <br /> { city } - { convertToFullName(uf) }, { uf }
                             </p>
                         </div>
                     </div>
@@ -57,7 +86,7 @@ export function Success(){
                         <div className="">
                             <p className="font-Roboto text-sm text-base-text leading-5">
                                 Pagamento na entrega <br />
-                                <strong>Cartão de Crédito </strong>
+                                <strong>{ payment }</strong>
                             </p>
                         </div>
                     </div>

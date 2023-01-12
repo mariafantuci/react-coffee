@@ -19,7 +19,6 @@ export function Buy({ id, cartId = 0, showButton, cartQty}: BuyProps){
     const { addToCart, changeCartItemQty, deleteCartItem } = useContext(CoffeeContext)
 
     function handleMinusQuantity(){
-        console.log('cartId',cartId)
         if(qty >= 2){
             setQty((state) => {
                 if(!showButton ) changeCartItemQty(id, (state - 1), 'minus')

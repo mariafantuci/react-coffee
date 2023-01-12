@@ -2,17 +2,20 @@ import { FormEvent, useContext } from 'react'
 import { CoffeeContext } from '../../../Context/CoffeeContext'
 
 export function Total(){
-    const { totalCart, completedForm } = useContext(CoffeeContext)
+    const { totalCart } = useContext(CoffeeContext)
     const delivery = 3.50
     const total = delivery + totalCart
-
+    
+    const storedStateAsJson = localStorage.getItem(
+        '@coffee-delivery:form-data-1.0.0'
+    )
     function handleOnSubmit(event: FormEvent){
         event.preventDefault();
-        if(completedForm){
+        if(storedStateAsJson){
             window.location.href = window.location.origin + '/success'
         }
     }
-    
+
     return (
         <form className="mb-10" onSubmit={handleOnSubmit}>
             <div className="my-6 grid grid-cols-2">
@@ -27,7 +30,7 @@ export function Total(){
                     <h4 className="font-Roboto font-bold text-lg leading-7 text-base-subtitle">R$ {total.toFixed(2)}</h4>
                 </div>
             </div>
-            <button className="w-full rounded-lg flex items-center justify-center py-3 uppercase text-white bg-yellow-dark text-xs font-Roboto bold">Confirmar pedido</button>
+            <button disabled={!storedStateAsJson} className="w-full rounded-lg flex items-center justify-center py-3 uppercase text-white bg-yellow-dark text-xs font-Roboto bold">Confirmar pedido</button>
         </form>
     )
 }
